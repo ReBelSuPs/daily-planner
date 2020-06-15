@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-family: Helvetica, cursive;
+}
+
+main {
+  min-height: 100vh;
+  padding: 2em 3em;
+  background-color: #393e46;
+  color: #eeeeee;
+  flex: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+main h1 {
+  min-height: 10vh;
+  text-align: center;
+  grid-column: 1/-1;
+  font-size: 3.5rem;
+}
+
+#remaining,
+#completed {
+  min-height: 80vh;
+  border: 2px solid #eeeeee;
+  border-radius: 10px;
+  padding: 2em;
+  margin: 0 0.8em;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+.task-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #eeeeee;
+  color: #222831;
+  border-radius: 10px;
+  margin: 1.5em 0;
+  padding: 0.5em 2em;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.1s ease-in;
+}
+button {
+  font-size: 1.2rem;
+  color: #eee;
+  padding: 0.5em 1em;
+  border: none;
+}
+#completed-btn {
+  border-radius: 5px;
+  background-color: rgb(25, 153, 13);
+}
+#delete-btn {
+  border-radius: 5px;
+  background-color: rgb(184, 87, 87);
+}
+button:hover {
+  background-color: #eee;
+  color: #222831;
+}
+h4 {
+  font-size: 1.5rem;
+}
+.task-card:hover {
+  background-color: #32e0c4;
+  color: #222831;
+}
+aside {
+  min-height: 100vh;
+  flex: 2;
+  background-color: #32e0c4;
+  color: #222831;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+label {
+  font-size: 1.5em;
+}
+input[type='text'],
+select {
+  cursor: pointer;
+  background-color: #eeeeee;
+  border: none;
+  color: #222831;
+  transition: all 0.1s ease-in;
+}
+input[type='submit'] {
+  cursor: pointer;
+  border: none;
+  padding: 1em 3em;
+  border-radius: 10px;
+  background-color: #222831;
+  color: #eeeeee;
+}
+select {
+  display: block;
+  margin-top: 0.8em;
+  padding: 0.5em 0.8em;
+}
+input[type='text'] {
+  width: 80%;
+}
+input::placeholder {
+  color: #000;
+}
+input {
+  text-align: left;
+  padding: 1em 2em;
+  font-size: 1.4em;
+}
+input:hover,
+select:hover {
+  background-color: #393e46;
+  color: #eeeeee;
+}
+input:hover::placeholder {
+  color: #eeeeee;
+}
+form {
+  width: 80%;
+  position: sticky;
+  top: 0;
+  right: 0;
+  margin: 20vh auto;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
