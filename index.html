@@ -8,6 +8,20 @@
     <title>Document</title>
   </head>
   <body>
+    <aside>
+      <form id="formElem">
+        <input id="plan" type="text" name="plan" placeholder="Enter your plan for today" />
+        <div>
+          <label for="priority">Select Priority</label>
+          <select name="priority" id="priority">
+            <option value="high">high</option>
+            <option value="medium">medium</option>
+            <option value="low">low</option>
+          </select>
+        </div>
+        <input id="submit" type="submit" value="Add Task" />
+      </form>
+    </aside>
     <main>
       <h1>Tasks</h1>
       <div id="remaining">
@@ -24,19 +38,6 @@
       </div>
       </div>
     </main>
-    <aside>
-      <form id="formElem">
-        <input id="plan" type="text" name="plan" placeholder="Enter your plan for today" />
-        <div>
-          <label for="priority">Select Priority</label>
-          <select name="priority" id="priority">
-            <option value="high">high</option>
-            <option value="medium">medium</option>
-            <option value="low">low</option>
-          </select>
-        </div>
-        <input id="submit" type="submit" value="Add Task" />
-      </form>
-    </aside>
+    
   </body>
 </html>

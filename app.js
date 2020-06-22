@@ -60,15 +60,35 @@ const renderRemaining = () => {
   let i = 0;
   remainingTasks.innerHTML = '';
   remainingTasksInfo.forEach((info) => {
-    remainingTasks.innerHTML += `
-      <div class="task-card" data-index="${i}">
+    info.selectedPriority === 2
+      ? (remainingTasks.innerHTML += `
+      <div class="task-card p3" data-index="${i}">
       <h4>${info.plan}</h4>
       <div>
       <button id="completed-btn">&#10004;</button>
       <button id="delete-btn">&#10008;</button>
       </div>
       </div>
-      `;
+      `)
+      : info.selectedPriority === 1
+      ? (remainingTasks.innerHTML += `
+      <div class="task-card p2" data-index="${i}">
+      <h4>${info.plan}</h4>
+      <div>
+      <button id="completed-btn">&#10004;</button>
+      <button id="delete-btn">&#10008;</button>
+      </div>
+      </div>
+      `)
+      : (remainingTasks.innerHTML += `
+      <div class="task-card p1" data-index="${i}">
+      <h4>${info.plan}</h4>
+      <div>
+      <button id="completed-btn">&#10004;</button>
+      <button id="delete-btn">&#10008;</button>
+      </div>
+      </div>
+      `);
     i++;
   });
   checkForComplete();

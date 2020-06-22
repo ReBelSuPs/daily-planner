@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+
+html {
+  font-size: 12px;
+}
 body {
   margin: 0;
   padding: 0;
@@ -27,7 +31,7 @@ main h1 {
 
 #remaining,
 #completed {
-  min-height: 80vh;
+  min-height: 70vh;
   border: 2px solid #eeeeee;
   border-radius: 10px;
   padding: 2em;
@@ -39,43 +43,53 @@ h3 {
 }
 .task-card {
   width: 100%;
-  max-width: 400px;
-  background-color: #eeeeee;
   color: #222831;
   border-radius: 10px;
   margin: 1.5em 0;
   padding: 0.5em 2em;
-  font-size: 1.2em;
+  font-size: 1.15em;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: all 0.1s ease-in;
 }
+.task-card.p1 {
+  background-color: #fff8dc;
+}
+.task-card.p2 {
+  background-color: #efdfbb;
+}
+.task-card.p3 {
+  background-color: #eedc82;
+}
+#completed .task-card {
+  background-color: #32e0c4;
+}
 button {
   font-size: 1.2rem;
-  color: #eee;
+  cursor: pointer;
   padding: 0.5em 1em;
   border: none;
 }
 #completed-btn {
   border-radius: 5px;
-  background-color: rgb(25, 153, 13);
+  background-color: #7fff00;
+}
+#completed-btn:hover {
+  background-color: #00ff00;
 }
 #delete-btn {
   border-radius: 5px;
-  background-color: rgb(184, 87, 87);
+  background-color: salmon;
 }
-button:hover {
-  background-color: #eee;
-  color: #222831;
+#delete-btn:hover {
+  background-color: lightsalmon;
 }
+
 h4 {
   font-size: 1.5rem;
 }
-.task-card:hover {
-  background-color: #32e0c4;
-  color: #222831;
-}
+
 aside {
   min-height: 100vh;
   flex: 2;
@@ -92,14 +106,12 @@ input[type='text'],
 select {
   cursor: pointer;
   background-color: #eeeeee;
-  border: none;
   color: #222831;
   transition: all 0.1s ease-in;
 }
 input[type='submit'] {
   cursor: pointer;
-  border: none;
-  padding: 1em 3em;
+  padding: 0.8em 2em;
   border-radius: 10px;
   background-color: #222831;
   color: #eeeeee;
@@ -110,22 +122,26 @@ select {
   padding: 0.5em 0.8em;
 }
 input[type='text'] {
-  width: 80%;
+  width: 90%;
 }
 input::placeholder {
   color: #000;
 }
-input {
+input,
+select,
+input:focus {
   text-align: left;
+  border: none;
   padding: 1em 2em;
-  font-size: 1.4em;
 }
 input:hover,
-select:hover {
+select:hover,
+input:focus {
   background-color: #393e46;
   color: #eeeeee;
 }
-input:hover::placeholder {
+input:hover::placeholder,
+input:focus::placeholder {
   color: #eeeeee;
 }
 form {
@@ -139,4 +155,42 @@ form {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
+}
+
+@media only screen and (max-width: 1500px) {
+  html {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  body {
+    flex-direction: column;
+  }
+  aside,
+  main {
+    min-height: 50vh;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  html {
+    font-size: 9px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-gap: 2em 0;
+  }
+  #remaining,
+  #completed {
+    min-height: 30vh;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 8px;
+  }
 }
