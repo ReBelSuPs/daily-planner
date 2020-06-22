@@ -111,7 +111,7 @@ select {
 }
 input[type='submit'] {
   cursor: pointer;
-  padding: 0.8em 2em;
+  padding: 1.2em 2em;
   border-radius: 10px;
   background-color: #222831;
   color: #eeeeee;
