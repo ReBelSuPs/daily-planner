@@ -187,7 +187,7 @@ input:focus::placeholder {
   }
   aside,
   main {
-    min-height: 50vh;
+    min-height: 70vh;
   }
   form {
     margin: 2em 0;
