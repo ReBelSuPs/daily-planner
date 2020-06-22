@@ -23,6 +23,20 @@ const checkForComplete = () => {
   );
 };
 
+const checkForRedo = () => {
+  completedTasks.querySelectorAll('#redo-btn').forEach((el) =>
+    el.addEventListener('click', (e) => {
+      index = getIndex(e.target);
+      remainingTasksInfo.push(completedTasksInfo[index]);
+      remainingTasksInfo.sort((a, b) =>
+        a.selectedPriority < b.selectedPriority ? 1 : -1
+      );
+      renderRemaining();
+      completedTasksInfo.splice(index, 1);
+      renderCompleted();
+    })
+  );
+};
 const checkForDel = () => {
   document.querySelectorAll('#delete-btn').forEach((el) =>
     el.addEventListener('click', (e) => {
@@ -44,15 +58,17 @@ const renderCompleted = () => {
   completedTasks.innerHTML = '';
   completedTasksInfo.forEach((info) => {
     completedTasks.innerHTML += `
-      <div class="task-card" data-index="${i}">
+      <div class="task-card flex" data-index="${i}">
       <h4>${info.plan}</h4>
-      <div>
+      <div class="flex">
+      <button id="redo-btn">&#8592;</button>
       <button id="delete-btn">&#10008;</button>
       </div>
       </div>
       `;
     i++;
   });
+  checkForRedo();
   checkForDel();
 };
 
@@ -62,9 +78,9 @@ const renderRemaining = () => {
   remainingTasksInfo.forEach((info) => {
     info.selectedPriority === 2
       ? (remainingTasks.innerHTML += `
-      <div class="task-card p3" data-index="${i}">
+      <div class="task-card flex p3" data-index="${i}">
       <h4>${info.plan}</h4>
-      <div>
+      <div class="flex">
       <button id="completed-btn">&#10004;</button>
       <button id="delete-btn">&#10008;</button>
       </div>
@@ -72,18 +88,18 @@ const renderRemaining = () => {
       `)
       : info.selectedPriority === 1
       ? (remainingTasks.innerHTML += `
-      <div class="task-card p2" data-index="${i}">
+      <div class="task-card flex p2" data-index="${i}">
       <h4>${info.plan}</h4>
-      <div>
+      <div class="flex">
       <button id="completed-btn">&#10004;</button>
       <button id="delete-btn">&#10008;</button>
       </div>
       </div>
       `)
       : (remainingTasks.innerHTML += `
-      <div class="task-card p1" data-index="${i}">
+      <div class="task-card flex p1" data-index="${i}">
       <h4>${info.plan}</h4>
-      <div>
+      <div class="flex">
       <button id="completed-btn">&#10004;</button>
       <button id="delete-btn">&#10008;</button>
       </div>
